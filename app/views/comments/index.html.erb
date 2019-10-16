@@ -1,5 +1,28 @@
 <div class="row">
   <div class="col-10 offset -1">
-    
+    <% if Comment.all %>
+      <% Comment.all.each do |comment| %>
+      <div>
+        <%= comment.user %>
+        <%= comment.message %>
+      </div>
+      <% end %>
+    <% else %>
+      Comment Failed to be Found
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-10 offset -1">
+    <h4>Add a Comment</h4>
+    <%= simple_form_for Comment.new, url: comments_path do |f| %>
+      <%= f.input_field :user, placeholder: 'Username' %>
+      <div class="form-line-break"><br /><br /></div>
+      <%= f.input_field :message, placeholder: 'Comment' %>
+      <div class="form-line-break"><br /><br /></div>
+      <%= f.submit 'Post Comment', class: 'my-btn' %>
+    <% end %>
   </div>
 </div>

@@ -4,15 +4,20 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def show
+    @comments = Comment.find_by_id(params[:id])
+    return render_not_found if @comment.blank?
+  end
+
   def create
-    @comment = Comment.find(params[:comment_id])
-    @comment.create(comment_params)
+    @comments = Comment.create(comment_params)
+    redirect_to root_path
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:user)
+    params.require(:comment).permit(:user, :message)
   end
 
 
