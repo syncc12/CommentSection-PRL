@@ -2,6 +2,8 @@
 
 This application is located here: https://commentsection-patricklyden.herokuapp.com
 
+![Home_Page](../Saved-Images/CommentSection_Home_Page.png)
+
 **Purpose:**<br>
 This is a very simple project, all this is is a comment section, similar to the ones found under videos on Youtube.com, or under photos on Facebook.com.
 
